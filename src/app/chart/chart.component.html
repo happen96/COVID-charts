@@ -1,0 +1,9 @@
+<div class="d-block" *ngIf="chartLabels && chartLabels.length > 0">
+  <canvas baseChart
+          [datasets]="chartData"
+          [labels]="chartLabels"
+          [options]="chartOptions"
+          [legend]="chartLegend"
+          [chartType]="chartType"
+  ></canvas>
+</div>

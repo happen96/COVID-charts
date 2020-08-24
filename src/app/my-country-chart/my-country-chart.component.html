@@ -1,0 +1,47 @@
+<div class="">
+  <div class="d-flex">
+    <div class="w-25">
+      <h1 class="text-danger font-weight-bold d-flex justify-content-center display-1 border rounded p-3 mt-5">
+        {{lastConfirmedCount}}
+      </h1>
+    </div>
+    <div class="w-75 text-white">
+      <h4 class="text-center mb-3">Last date results {{lastDateResults}} in Ukraine</h4>
+      <div class="ml-5">
+        <p>Number of recorded deaths - <span class="text-danger">{{lastDeathsCount}}</span></p>
+        <p>Number of recovered people - <span class="text-success">{{lastRecoveredCount}}</span></p>
+        <p>Number of still ill people - <span class="text-warning">{{lastActiveCount}}</span></p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="text-white">All-time case statistics in chart below</h3>
+  <app-chart *ngIf="confirmedChartData && confirmedChartData.length > 0"
+             [chartData]="confirmedChartData"
+             [chartType]="'line'"
+             [chartLabels]="dateLabels"
+  ></app-chart>
+
+  <h3 class="text-white">All-time death-case statistics in chart below</h3>
+  <app-chart *ngIf="deathChartData && deathChartData.length > 0"
+             [chartData]="deathChartData"
+             [chartType]="'line'"
+             [chartLabels]="dateLabels"
+  ></app-chart>
+
+  <h3 class="text-white">All-time recovered-case statistics in chart below</h3>
+  <app-chart *ngIf="recoveredChartData && recoveredChartData.length > 0"
+             [chartData]="recoveredChartData"
+             [chartType]="'line'"
+             [chartLabels]="dateLabels"
+  ></app-chart>
+
+  <h3 class="text-white">All-time active-case statistics in chart below</h3>
+  <app-chart *ngIf="activeChartData && activeChartData.length > 0"
+             [chartData]="activeChartData"
+             [chartType]="'line'"
+             [chartLabels]="dateLabels"
+  ></app-chart>
+</div>
+
+

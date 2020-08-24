@@ -1,0 +1,21 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  background-color: #212529;
+}
+html{
+  height:100%;
+}
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul, li, p {
+  margin: 0;
+  padding: 0;
+}
+li {
+  border: 1px solid #212529;
+  list-style: none;
+}

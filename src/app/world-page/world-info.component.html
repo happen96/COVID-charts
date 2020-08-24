@@ -1,0 +1,35 @@
+<div>
+  <h3 class="p-3 mb-2 text-white">Top Ten countries by Total Confirmed cases in {{currentDate}}</h3>
+
+  <app-chart
+    [chartData]="topChartData"
+    [chartType]="'bar'"
+    [chartLabels]="topCountriesLabel"
+  ></app-chart>
+
+  <h3 class="p-3 mb-2 text-white">Charts with all countries with occurred cases</h3>
+
+  <ul>
+    <li *ngFor="let country of countries let i = index"
+        class="text-white p-3"
+        (click)="showChart(country.Slug, i)">
+      <div class="d-flex">
+        <p class="w-25"><span>{{i + 1}}</span>. {{country.Country}} ({{country.CountryCode}})</p>
+        <p class="text-warning w-25">New Confirmed - {{country.NewConfirmed}}</p>
+        <p class="text-danger w-25">New Deaths - {{country.NewDeaths}}</p>
+        <p class="text-success w-25">New Recovered - {{country.NewRecovered}}</p>
+      </div>
+      <div *ngIf="trackId === i && showCountryChart && countryChartData && countryChartData.length > 0">
+        <app-chart
+          [chartData]="countryChartData"
+          [chartType]="'line'"
+          [chartLabels]="dateLabels"
+        ></app-chart>
+      </div>
+      <p *ngIf="showHelpMessage" class="text-danger">Sorry something went wrong</p>
+
+    </li>
+  </ul>
+</div>
+
+
