@@ -1,0 +1,33 @@
+<div class="text-white text-center m-3">
+  <h1>Comparative chart of the dynamics of infection in the World and Ukraine.</h1>
+
+  <p class="text-left mt-3 mb-3">Top 10 countries with Ukraine by total Confirmed</p>
+  <div class="d-block"  *ngIf="mainChartData && mainChartData.length > 0">
+    <app-chart
+      [chartData]="mainChartData"
+      [chartType]="'line'"
+      [chartLabels]="mainChartLabel"
+      [colors]="confirmedColor"
+    ></app-chart>
+  </div>
+
+  <p class="text-left mt-3 mb-3">Top 10 countries with Ukraine by total Deaths</p>
+  <div class="d-block"  *ngIf="mainDeathData && mainDeathData.length > 0">
+    <app-chart
+      [chartData]="mainDeathData"
+      [chartType]="'line'"
+      [chartLabels]="mainDeathLabel"
+      [colors]="deathColor"
+    ></app-chart>
+  </div>
+
+  <p class="text-left mt-3 mb-3">Top 10 countries with Ukraine by total Recovered</p>
+  <div class="d-block"  *ngIf="mainRecoveredData && mainRecoveredData.length > 0">
+    <app-chart
+      [chartData]="mainRecoveredData"
+      [chartType]="'line'"
+      [chartLabels]="mainRecoveredLabel"
+      [colors]="recoveredColor"
+    ></app-chart>
+  </div>
+</div>

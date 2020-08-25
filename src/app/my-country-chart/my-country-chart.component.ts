@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CountriesService} from '../countries.service';
 import * as moment from 'moment';
+import {ColorCases} from '../color-cases.enum';
 
 @Component({
   selector: 'app-my-country-chart',
@@ -15,19 +16,33 @@ export class MyCountryChartComponent implements OnInit {
   lastRecoveredCount: number;
   lastActiveCount: number;
 
-  confirmedChartData = [{data: [], label: 'Confirmed ', fill: false}];
-  deathChartData = [ {data: [], label: 'Deaths', fill: false, colors: ['#dc3545']}];
-  recoveredChartData = [{data: [], label: 'Recovered', fill: false}];
-  activeChartData = [{data: [], label: 'Active', fill: false}];
+  confirmedChartData = [{data: [], label: 'Confirmed ', fill: true}];
+  deathChartData = [ {data: [], label: 'Deaths', fill: true}];
+  recoveredChartData = [{data: [], label: 'Recovered', fill: true}];
+  activeChartData = [{data: [], label: 'Active', fill: true}];
   dateLabels = [];
+
+  deathColor: string;
+  confirmedColor: string;
+  recoveredColor: string;
+  activeColor: string;
 
   constructor(
     private countryService: CountriesService
   ) { }
 
   ngOnInit() {
+    this.getColors();
     this.getMyCountryInfo();
   }
+
+  getColors() {
+    this.deathColor = ColorCases.deathColor;
+    this.confirmedColor = ColorCases.confirmedColor;
+    this.recoveredColor = ColorCases.recoveredColor;
+    this.activeColor = ColorCases.activeColor;
+  }
+
 
   getMyCountryInfo() {
     this.countryService.getCountryInfo('ukraine').then((data) => {

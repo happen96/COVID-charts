@@ -7,16 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WorldInfoComponent } from './world-page/world-info.component';
 import { MyCountryChartComponent } from './my-country-chart/my-country-chart.component';
-import { MyPieChartComponent } from './my-pie-chart/my-pie-chart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartComponent } from './chart/chart.component';
+import { GrowthDynamicsComponent } from './growth-dynamics/growth-dynamics.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WorldInfoComponent,
     MyCountryChartComponent,
-    MyPieChartComponent,
+    GrowthDynamicsComponent,
     ChartComponent,
   ],
   imports: [

@@ -20,6 +20,7 @@
              [chartData]="confirmedChartData"
              [chartType]="'line'"
              [chartLabels]="dateLabels"
+             [colors]="confirmedColor"
   ></app-chart>
 
   <h3 class="text-white">All-time death-case statistics in chart below</h3>
@@ -27,6 +28,7 @@
              [chartData]="deathChartData"
              [chartType]="'line'"
              [chartLabels]="dateLabels"
+             [colors]="deathColor"
   ></app-chart>
 
   <h3 class="text-white">All-time recovered-case statistics in chart below</h3>
@@ -34,6 +36,7 @@
              [chartData]="recoveredChartData"
              [chartType]="'line'"
              [chartLabels]="dateLabels"
+             [colors]="recoveredColor"
   ></app-chart>
 
   <h3 class="text-white">All-time active-case statistics in chart below</h3>
@@ -41,6 +44,7 @@
              [chartData]="activeChartData"
              [chartType]="'line'"
              [chartLabels]="dateLabels"
+             [colors]="activeColor"
   ></app-chart>
 </div>
 

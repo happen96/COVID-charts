@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Color} from 'ng2-charts';
 
 @Component({
   selector: 'app-chart',
@@ -10,6 +11,8 @@ export class ChartComponent implements OnInit {
   @Input() chartData: any[];
   @Input() chartLabels: any[];
   @Input() chartType: string;
+  @Input() colors: string;
+  @Input() borderColor: string;
 
   chartOptions = {
     scaleShowVerticalLines: false,
@@ -17,9 +20,22 @@ export class ChartComponent implements OnInit {
   };
   chartLegend = true;
 
+  lineChartColors: Color[];
+
   constructor() { }
 
   ngOnInit() {
+    this.setLineColor();
   }
 
+  setLineColor() {
+    if (this.colors && this.colors.length > 0) {
+      this.lineChartColors = [
+        {
+          borderColor: 'black',
+          backgroundColor: this.colors ? this.colors : 'rgba(139,0,0,0.28)',
+        },
+      ];
+    }
+  }
 }
