@@ -9,6 +9,7 @@ import { ColorCases } from '../color-cases.enum';
 })
 export class GrowthDynamicsComponent implements OnInit {
 
+  isLoading = true;
   myCountryInConfirmedCases: any;
   myCountryInDeathsCases: any;
   myCountryInRecoveredCases: any;
@@ -48,9 +49,11 @@ export class GrowthDynamicsComponent implements OnInit {
   }
 
   private getSummaryInfo() {
+    this.isLoading = !this.isLoading;
     this.countryService.getSummeryInfoPerCountry().then((data) => {
       if (data) {
         this.populateCountryInfo(data);
+        this.isLoading = !this.isLoading;
       }
     });
   }

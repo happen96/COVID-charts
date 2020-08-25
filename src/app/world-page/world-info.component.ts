@@ -10,6 +10,7 @@ import { Country } from '../country.model';
 })
 export class WorldInfoComponent implements OnInit {
 
+  isLoading = true;
   showCountryChart = false;
   showHelpMessage = false;
   currentDate: string;
@@ -36,6 +37,7 @@ export class WorldInfoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.isLoading = !this.isLoading;
     this.getSummaryInfo();
   }
 
@@ -44,6 +46,7 @@ export class WorldInfoComponent implements OnInit {
       if (data) {
         this.currentDate = moment(data.Date).format('LL');
         this.populateCountryInfo(data);
+        this.isLoading = !this.isLoading;
       }
     });
   }
@@ -63,6 +66,7 @@ export class WorldInfoComponent implements OnInit {
   }
 
   private showChart(countrySlug, index) {
+    this.isLoading = false;
     this.fetchChartsData();
     this.countryService.getCountryInfo(countrySlug).then((data) => {
       if (data) {
@@ -74,9 +78,11 @@ export class WorldInfoComponent implements OnInit {
           this.countryChartData[1].data.push(day.Deaths);
           this.countryChartData[2].data.push(day.Recovered);
           this.countryChartData[3].data.push(day.Active);
+          this.isLoading = true;
         });
       } else {
         this.showHelpMessage = !this.showHelpMessage;
+        this.isLoading = true;
       }
     });
   }

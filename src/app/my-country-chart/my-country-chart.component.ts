@@ -10,6 +10,8 @@ import {ColorCases} from '../color-cases.enum';
 })
 export class MyCountryChartComponent implements OnInit {
 
+  isLoading = true;
+
   lastDateResults: string;
   lastConfirmedCount: number;
   lastDeathsCount: number;
@@ -45,10 +47,12 @@ export class MyCountryChartComponent implements OnInit {
 
 
   getMyCountryInfo() {
+    this.isLoading = !this.isLoading;
     this.countryService.getCountryInfo('ukraine').then((data) => {
       if (data) {
         this.populateHeaderData(data);
         this.populateChartsData(data);
+        this.isLoading = !this.isLoading;
       }
     });
   }

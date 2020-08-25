@@ -10,6 +10,7 @@ import { MyCountryChartComponent } from './my-country-chart/my-country-chart.com
 import { HttpClientModule } from '@angular/common/http';
 import { ChartComponent } from './chart/chart.component';
 import { GrowthDynamicsComponent } from './growth-dynamics/growth-dynamics.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { GrowthDynamicsComponent } from './growth-dynamics/growth-dynamics.compo
     MyCountryChartComponent,
     GrowthDynamicsComponent,
     ChartComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,

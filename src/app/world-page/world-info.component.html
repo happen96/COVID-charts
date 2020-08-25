@@ -1,5 +1,6 @@
-<div>
-  <h3 class="p-3 mb-2 text-white">Top Ten countries by Total Confirmed cases in {{currentDate}}</h3>
+<app-loading-spinner *ngIf="!isLoading"></app-loading-spinner>
+<div class="p-5 m-3">
+  <h3 class="text-white">Top Ten countries by Total Confirmed cases in {{currentDate}}</h3>
 
   <app-chart
     [chartData]="topChartData"
